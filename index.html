@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Moo Mooer 🐮</title>
+  </head>
+
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
+
+  <body class="debug">
+    <header class="container-fluid">
+      <section class="row justify-content-center text-center">
+        <div class="col-6">
+          <h1>Moo🐄</h1>
+        </div>
+      </section>
+    </header>
+    <main class="container-fluid">
+      <!-- SECTION Cow Image Starts here -->
+      <section class="row justify-content-center">
+        <div class="col-6">
+          <img
+            onclick="moo()"
+            class="img-fluid"
+            src="https://images.unsplash.com/photo-1675972876757-14bb5238ed12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNvd3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+            alt="Cow image"
+          />
+        </div>
+      </section>
+
+      <section class="row container-fluid justify-content-center text-center">
+        <div class="col-4">
+          <p id="mooCount">Total Moos:</p>
+        </div>
+      </section>
+      <section class="row container-fluid">
+        <div class="col-6">
+          <div>
+            <h3>upgrades</h3>
+            <button id="alfalfa" onclick="buyUpgrades('alfalfa')">
+              alfalfa
+            </button>
+            <p id="price">Price:</p>
+
+            <button onclick="buyUpgrades('milk')">milk</button>
+            <span></span>
+          </div>
+          <div>
+            <h3>AutoMatic upgrades</h3>
+            <button onclick="buyAutomaticUpgrades('milker')">Milker</button>
+            <button onclick="buyAutomaticUpgrades('dairy')">Dairy</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div>
+            <h3>click Stats</h3>
+
+            <span id="draw"></span>
+          </div>
+          <div>
+            <h3>Automatic Stats</h3>
+            <span id="drawAutomatic"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
