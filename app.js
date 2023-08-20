@@ -81,6 +81,7 @@ function buyUpgrades(upgradeName){
     collectClickUpgrades()
     moreClickQuantity(upgradeName)
     drawClickUpgrades()
+    // countClickUpgrade()
 }
 
 function buyAutomaticUpgrades(upgradeName){
@@ -138,6 +139,7 @@ function moreAutoQuantity(upgradeName){
 let drawElem = document.getElementById('draw')
 let drawAutomaticElem = document.getElementById('drawAutomatic')
 let priceElem = document.getElementById('price')
+let countElem = document.getElementById('countClick')
 
 
 
@@ -156,6 +158,16 @@ function drawAutomaticUpgrade(){
     document.getElementById('price4').innerText = `Price:${automaticUpgrades[1].price}`
 }
 
+// function countClickUpgrade(){
+//     let template = ''
+//     clickUpgrades.forEach(upgrade => {
+//         if(upgrade.quantity > 0){
+//             template += `
+//             <span>Total Clicks:${clickUpgrades[0].multiplier + clickUpgrades[1].multiplier}</span>`
+//         }
+//     })
+//     countElem.innerHTML = template
+// }
 
 
 function drawClickUpgrades() {
