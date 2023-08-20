@@ -17,66 +17,68 @@
     <title>Moo Mooer 🐮</title>
   </head>
 
-  <style>
-    body.debug .container,
-    body.debug .container-fluid {
-      outline: 2px double blue;
-      outline-offset: -2px;
-    }
-
-    body.debug .row {
-      outline: 2px dashed red;
-      outline-offset: -2px;
-    }
-
-    body.debug [class*="col-"] {
-      outline: 2px dotted forestgreen;
-      outline-offset: -3px;
-    }
-  </style>
-
-  <body class="debug">
-    <header class="container-fluid">
+  <body class="">
+    <header class="container-fluid head-color">
       <section class="row justify-content-center text-center">
         <div class="col-6">
           <h1>Moo🐄</h1>
         </div>
       </section>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid background">
       <!-- SECTION Cow Image Starts here -->
-      <section class="row justify-content-center">
+      <section class="row justify-content-center body-color">
         <div class="col-6">
           <img
+            id="mooButton"
             onclick="moo()"
             class="img-fluid"
-            src="https://images.unsplash.com/photo-1675972876757-14bb5238ed12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGNvd3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
+            src="https://www.bing.com/th/id/OGC.4ad0571e41311b3edeab04cacd343f39?pid=1.7&rurl=https%3a%2f%2fc.tenor.com%2fnCBmOrT7gEUAAAAi%2frunning-cow.gif&ehk=Gkl64aTBiBwgUEafv8ojpYn4oCoukLbVciIqyk2g%2bbo%3d"
             alt="Cow image"
           />
         </div>
       </section>
 
-      <section class="row container-fluid justify-content-center text-center">
+      <section class="row justify-content-center text-center foot-color">
         <div class="col-4">
           <p id="mooCount">Total Moos:</p>
         </div>
       </section>
-      <section class="row container-fluid">
+      </section>
+      <section class="row foot-color">
         <div class="col-6">
           <div>
             <h3>upgrades</h3>
-            <button id="alfalfa" onclick="buyUpgrades('alfalfa')">
-              alfalfa
+            <button
+              class="bg-warning rounded"
+              id="alfalfa"
+              onclick="buyUpgrades('alfalfa')"
+            >
+              Alfalfa
             </button>
-            <p id="price">Price:</p>
+            <p id="price"></p>
 
-            <button onclick="buyUpgrades('milk')">milk</button>
-            <span></span>
+            <button class="bg-warning rounded" onclick="buyUpgrades('milk')">
+              Milk
+            </button>
+            <p id="price2"></p>
           </div>
           <div>
             <h3>AutoMatic upgrades</h3>
-            <button onclick="buyAutomaticUpgrades('milker')">Milker</button>
-            <button onclick="buyAutomaticUpgrades('dairy')">Dairy</button>
+            <button
+              class="bg-warning rounded"
+              onclick="buyAutomaticUpgrades('milker')"
+            >
+              Milker
+            </button>
+            <p id="price3"></p>
+            <button
+              class="bg-warning rounded"
+              onclick="buyAutomaticUpgrades('dairy')"
+            >
+              Dairy
+            </button>
+            <p id="price4"></p>
           </div>
         </div>
         <div class="col-6">

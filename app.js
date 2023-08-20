@@ -32,46 +32,23 @@ let automaticUpgrades = [
 let totalMoos = 0 
 
 function moo(){
-    totalMoos++
-    moreClickQuantity()
-    moreAutoQuantity()
+    totalMoos+= clickUpgrades[0].multiplier
+    if(clickUpgrades[1].multiplier >= 2){
+        totalMoos+=clickUpgrades[1].multiplier
+    }
     update()
 }
 
 
 
 
-function buyUpgrades(upgradeName){
-    let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
-    if( totalMoos > foundUpgrade.price){
-        foundUpgrade.quantity++
-        foundUpgrade.multiplier++
-        totalMoos-= foundUpgrade.price
-    }
-    console.log(foundUpgrade)
-    collectClickUpgrades()
-    moreClickQuantity()
-    drawClickUpgrades()
-}
 
 
-function buyAutomaticUpgrades(upgradeName){
-    let foundUpgrade = automaticUpgrades.find(upgrade => upgrade.name == upgradeName)
-    if(totalMoos > foundUpgrade.price){
-        foundUpgrade.quantity++
-        foundUpgrade.multiplier+=20
-        totalMoos-= foundUpgrade.price
-    }
-    console.log(foundUpgrade)
-    collectAutoUpgrades()
-    moreAutoQuantity()
-    drawAutomaticUpgrade()
-}
+
 
 
 function update(){
     let mooCountElem = document.getElementById("mooCount").innerHTML = `Total Moos: ${totalMoos}`
-    
 }
 
 function collectClickUpgrades(){
@@ -93,41 +70,62 @@ function collectAutoUpgrades(){
     update()
 }
 
-
-
-function moreClickQuantity(){
-    clickUpgrades.forEach(upgrade => {
-        if(upgrade.quantity > 0){
-            upgrade.price+=200
-            totalMoos+=1
-        }
-        if(upgrade.quantity > 1){
-            upgrade.price+=20
-            totalMoos+=2
-        }
-        if(upgrade.quantity > 2){
-            upgrade.price+=50
-            totalMoos+3
-        }
-    })
-    
+function buyUpgrades(upgradeName){
+    let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
+    if( totalMoos >= foundUpgrade.price){
+        foundUpgrade.quantity++
+        foundUpgrade.multiplier++
+        totalMoos-= foundUpgrade.price
+    }
+    console.log(foundUpgrade)
+    collectClickUpgrades()
+    moreClickQuantity(upgradeName)
+    drawClickUpgrades()
 }
 
-function moreAutoQuantity(){
-    automaticUpgrades.forEach(upgrade => {
-        if(upgrade.quantity > 0){
-            upgrade.price+=200
-            totalMoos+=20
+function buyAutomaticUpgrades(upgradeName){
+    let foundUpgrade = automaticUpgrades.find(upgrade => upgrade.name == upgradeName)
+    if(totalMoos >= foundUpgrade.price){
+        foundUpgrade.quantity++
+        foundUpgrade.multiplier+=20
+        totalMoos-= foundUpgrade.price
+    }
+    console.log(foundUpgrade)
+    collectAutoUpgrades()
+    moreAutoQuantity(upgradeName)
+    drawAutomaticUpgrade()
+}
+
+function moreClickQuantity(upgradeName){
+    let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
+    if(foundUpgrade.quantity > 0){
+            foundUpgrade.price+=15
+        
+    }
+    if(foundUpgrade.quantity > 1){
+            foundUpgrade.price+=25
+        
         }
-        if(upgrade.quantity > 1){
-            upgrade.price+=200
+        if(foundUpgrade.quantity > 2){
+            foundUpgrade.price+=50
+            
+        }
+}
+
+function moreAutoQuantity(upgradeName){
+    let foundUpgrade = automaticUpgrades.find(upgrade => upgrade.name == upgradeName)
+    if(foundUpgrade.quantity > 0){
+        foundUpgrade.price+=200
+    }
+    if(foundUpgrade.quantity > 1){
+            foundUpgrade.price+=400
             totalMoos+=40
         }
-        if(upgrade.quantity > 2){
-            upgrade.price+=500
+        if(foundUpgrade.quantity > 2){
+            foundUpgrade.price+=500
             totalMoos+=60
         }
-    })
+    
 }
 
 
@@ -141,12 +139,7 @@ let drawElem = document.getElementById('draw')
 let drawAutomaticElem = document.getElementById('drawAutomatic')
 let priceElem = document.getElementById('price')
 
-function drawClickPrices(price){
-    clickUpgrades.forEach(upgrade => {
-        let price = upgrade.price
-    })
-    priceElem.innerText = ``
-}
+
 
 
 function drawAutomaticUpgrade(){
@@ -158,7 +151,9 @@ function drawAutomaticUpgrade(){
         }
     })
     drawAutomaticElem.innerHTML = template
-    update()
+    // update()
+    document.getElementById('price3').innerText = `Price:${automaticUpgrades[0].price}` 
+    document.getElementById('price4').innerText = `Price:${automaticUpgrades[1].price}`
 }
 
 
@@ -168,15 +163,26 @@ function drawClickUpgrades() {
     clickUpgrades.forEach(upgrade => {
         if(upgrade.quantity > 0){
             template += `
-            <span>| ${upgrade.name} x${upgrade.quantity} click:+${upgrade.multiplier} |</span>`
+            <span>| ${upgrade.name} x${upgrade.quantity} click:+${upgrade.multiplier}}</span>`
         }
     })
     drawElem.innerHTML = template
-    update()
+    // update()
+    document.getElementById('price').innerText =`Price:${clickUpgrades[0].price}`
+    document.getElementById('price2').innerText = `Price:${clickUpgrades[1].price}`
 }
+
+document.getElementById('price').innerText = `Price:${clickUpgrades[0].price}`
+
+document.getElementById('price2').innerText = `Price:${clickUpgrades[1].price}`
+
+document.getElementById('price3').innerText = `Price:${automaticUpgrades[0].price}` 
+
+document.getElementById('price4').innerText = `Price:${automaticUpgrades[1].price}`
+
+
 
 
 
 
 setInterval(collectAutoUpgrades, 3000)
-collectAutoUpgrades()

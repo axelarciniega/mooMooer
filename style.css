@@ -1,0 +1,19 @@
+/* .background{
+    background-image: url('https://www.bing.com/th/id/OGC.8a20e37387a76aec92a21a1526ad5547?pid=1.7&rurl=https%3a%2f%2fthumbs.gfycat.com%2fUnselfishAlarmingIberianemeraldlizard-size_restricted.gif&ehk=ZTNwmvxShtRBBRj9dBMtzNAMRqfBKi3DN1PMZYHB2Dc%3d');
+    object-fit: contain;
+} */
+
+
+.head-color{
+    background-color: rgb(36, 83, 255);
+}
+
+
+.body-color{
+    background-color: rgb(116, 146, 255);
+}
+
+.foot-color{
+    background-color: rgb(0, 148, 0);
+    padding: 0;
+}
