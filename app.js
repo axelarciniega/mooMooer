@@ -40,16 +40,11 @@ function moo(){
 }
 
 
-
-
-
-
-
-
-
 function update(){
     let mooCountElem = document.getElementById("mooCount").innerHTML = `Total Moos: ${totalMoos}`
 }
+
+// SECTION collect upgrades functions
 
 function collectClickUpgrades(){
     clickUpgrades.find(upgrade => {
@@ -69,6 +64,8 @@ function collectAutoUpgrades(){
     })
     update()
 }
+
+// SECTION buying upgrades
 
 function buyUpgrades(upgradeName){
     let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
@@ -96,6 +93,8 @@ function buyAutomaticUpgrades(upgradeName){
     moreAutoQuantity(upgradeName)
     drawAutomaticUpgrade()
 }
+
+// SECTION Upgrades quantity 
 
 function moreClickQuantity(upgradeName){
     let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
@@ -142,14 +141,14 @@ let priceElem = document.getElementById('price')
 let countElem = document.getElementById('countClick')
 
 
-
+// SECTION Drawing functions
 
 function drawAutomaticUpgrade(){
     let template = ''
     automaticUpgrades.forEach(upgrade => {
         if(upgrade.quantity > 0){
             template += `
-            <span id="drawAutomatic1">|${upgrade.name} x${upgrade.quantity} click:+${upgrade.multiplier}       every 3 seconds|</span>`
+            <span id="drawAutomatic1">|${upgrade.name} x${upgrade.quantity} clicks:+${upgrade.multiplier}       every 3 seconds|</span>`
         }
     })
     drawAutomaticElem.innerHTML = template
@@ -160,12 +159,14 @@ function drawAutomaticUpgrade(){
 
 // function countClickUpgrade(){
 //     let template = ''
-//     clickUpgrades.forEach(upgrade => {
-//         if(upgrade.quantity > 0){
-//             template += `
-//             <span>Total Clicks:${clickUpgrades[0].multiplier + clickUpgrades[1].multiplier}</span>`
+//     let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName {
+//         if > 0){
+//             up
 //         }
 //     })
+//     template += `
+//             <span id="countClick">Clicks:${} </span>
+//         `
 //     countElem.innerHTML = template
 // }
 
@@ -175,7 +176,7 @@ function drawClickUpgrades() {
     clickUpgrades.forEach(upgrade => {
         if(upgrade.quantity > 0){
             template += `
-            <span>| ${upgrade.name} x${upgrade.quantity} click:+${upgrade.multiplier}}</span>`
+            <span>| ${upgrade.name} x${upgrade.quantity} clicks:+${upgrade.multiplier}}</span>`
         }
     })
     drawElem.innerHTML = template
