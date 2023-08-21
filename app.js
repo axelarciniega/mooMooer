@@ -33,7 +33,7 @@ let totalMoos = 0
 
 function moo(){
     totalMoos+= clickUpgrades[0].multiplier
-    if(clickUpgrades[1].multiplier >= 2){
+    if(clickUpgrades[1].multiplier > 2){
         totalMoos+=clickUpgrades[1].multiplier
     }
     update()
