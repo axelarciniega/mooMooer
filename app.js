@@ -10,7 +10,7 @@ let clickUpgrades = [
     name: 'milk',
     price: 150,
     quantity: 0,
-    multiplier: 1
+    multiplier: 2
   }
 ];
 
